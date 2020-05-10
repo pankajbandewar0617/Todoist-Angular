@@ -1,0 +1,23 @@
+mat-sidenav-container {
+  height: 90%;
+  width: "100px";
+}
+
+mat-sidenav,
+mat-sidenav-content {
+  padding: 16px;
+  background-color: #fff;
+}
+
+mat-sidenav {
+  background-color: #fafafa;
+  width: 200px;
+}
+.exp {
+  background-color: #fafafa;
+  box-shadow: none;
+  margin: 0px;
+}
+.title:hover {
+  cursor: pointer;
+}

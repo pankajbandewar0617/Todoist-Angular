@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="navbar">
+    <div>
+
+        <button class="material-icons" (click)="sendEvent()"
+            [matTooltip]="open ? 'close menu': 'open menu'">menu</button>
+        <button class="material-icons">home</button>
+        <button class="material-icons">search</button>
+
+    </div>
+    <div>
+        <button class="material-icons">add</button>
+        <button class="material-icons trend"> trending_up </button>
+
+        <button class="material-icons">notifications</button>
+        <button class="material-icons">settings </button>
+    </div>
+
+</mat-toolbar>

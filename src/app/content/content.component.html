@@ -1,0 +1,34 @@
+<mat-sidenav-container>
+    <mat-sidenav [opened]="parentData" mode="side">
+
+        <div *ngFor="let item of projects">
+            <h2 *ngIf="item.inbox_project" (click)="gotoTask(item.id,item.name)">{{item.name}}</h2>
+        </div>
+
+        <mat-accordion>
+            <mat-expansion-panel class="exp">
+                <mat-expansion-panel-header>
+                    <h2>Projects</h2>
+                </mat-expansion-panel-header>
+
+                <div *ngFor="let item of data">
+                    <button mat-icon-button aria-label="Example icon-button with a menu"
+                        (click)="gotoTask(item.id,item.name)">{{item.name}}
+                        <mat-icon [matMenuTriggerFor]="menu">more_vert</mat-icon>
+                    </button>
+
+                    <mat-menu #menu="matMenu">
+                        <!-- <button mat-menu-item>Update</button> -->
+                        <button mat-menu-item>Delete</button>
+                    </mat-menu>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <router-outlet></router-outlet>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
