@@ -51,14 +51,30 @@ export class ContentComponent implements OnInit {
     });
   }
 
-  openDialog(id: number, name: string): void {
+  openDialog(id?: number, name?: string): void {
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       data: { title: name },
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
-      this.updateProject(id, result);
-    });
+    if (name) {
+      dialogRef.afterClosed().subscribe((result) => {
+        this.updateProject(id, result);
+      });
+    } else {
+      dialogRef.afterClosed().subscribe((result) => {
+        this.addProject(result);
+      });
+    }
+  }
+
+  addProject(name: string) {
+    var project = new Project();
+    if (name.length > 0) {
+      project.name = name;
+      this.projectService.createNewProject(project).subscribe((result) => {
+        this.data.push(result);
+      });
+    }
   }
 
   updateProject(id: number, name: string) {

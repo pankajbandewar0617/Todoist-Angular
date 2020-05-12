@@ -1,5 +1,7 @@
-<h2 mar-dialog-title>Edit Project</h2>
-
+<h2 mat-dialog-title *ngIf="data.title;else elseBlock">Edit Project</h2>
+<ng-template #elseBlock>
+    <h2 mat-dialog-title>Project name</h2>
+</ng-template>
 <div mat-dialog-content>
     <mat-form-field>
         <mat-label>Project name</mat-label>
@@ -7,6 +9,6 @@
     </mat-form-field>
 </div>
 <mat-dialog-actions>
-    <button mat-button mat-dialog-close color="warn">Cancel</button>
-    <button mat-button [mat-dialog-close]="data.title">Add</button>
+    <button mat-flat-button mat-dialog-close color="warn">Cancel</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="data.title">Add</button>
 </mat-dialog-actions>

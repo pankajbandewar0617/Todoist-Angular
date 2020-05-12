@@ -8,7 +8,7 @@
         <mat-accordion>
             <mat-expansion-panel class="exp">
                 <mat-expansion-panel-header>
-                    <h2>Projects</h2>
+                    <h2><span (click)="openDialog()"> + </span> Projects</h2>
                 </mat-expansion-panel-header>
 
                 <div *ngFor="let item of data">
