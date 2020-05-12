@@ -19,7 +19,7 @@
 
                     <mat-menu #menu="matMenu">
                         <!-- <button mat-menu-item>Update</button> -->
-                        <button mat-menu-item>Delete</button>
+                        <button mat-menu-item (click)="deleteProject(item.id)">Delete</button>
                     </mat-menu>
                 </div>
             </mat-expansion-panel>

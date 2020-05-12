@@ -33,4 +33,12 @@ export class ContentComponent implements OnInit {
       relativeTo: this.route,
     });
   }
+
+  deleteProject(id: number) {
+    this.data = this.data.filter((project) => project.id !== id);
+    this.projectService.deleteProject(id).subscribe();
+    this.router.navigate([`projects/${id}`, { title: '' }], {
+      relativeTo: this.route,
+    });
+  }
 }

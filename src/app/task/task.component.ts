@@ -12,6 +12,7 @@ export class TaskComponent implements OnInit {
 
   @Input() taskData: any;
   @Input() projectId: any;
+  @Input() project: string;
   showTask: boolean;
 
   ngOnInit(): void {
@@ -23,6 +24,8 @@ export class TaskComponent implements OnInit {
     this.taskService.deleteTask(id).subscribe();
   }
   showAddTask() {
+    console.log(this.taskData);
+    console.log(this.taskData.length);
     this.showTask = !this.showTask;
   }
 

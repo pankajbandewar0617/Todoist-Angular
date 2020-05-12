@@ -1,21 +1,22 @@
-<div>
-    <mat-list *ngFor="let item of taskData">
-        <mat-list-item>
-            <mat-checkbox>{{item.content}}</mat-checkbox>
-            <button (click)="deleteTask(item.id)" class="delete">x</button>
-        </mat-list-item>
-        <mat-divider></mat-divider>
-    </mat-list>
+<div *ngIf="project">
+    <div>
+        <mat-list *ngFor="let item of taskData">
+            <mat-list-item>
+                <mat-checkbox>{{item.content}}</mat-checkbox>
+                <button (click)="deleteTask(item.id)" class="delete">x</button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </mat-list>
+    </div>
+    <div *ngIf="showTask;else elseBlock">
+        <mat-form-field appearance="fill">
+            <mat-label>Task Name</mat-label>
+            <input #myInput matInput>
+        </mat-form-field>
+        <button (click)="addTask(myInput.value, projectId)" color="primary" mat-raised-button>Add task</button>
+        <button (click)="showAddTask()" mat-raised-button color="warn">Cancel</button>
+    </div>
+    <ng-template #elseBlock>
+        <button mat-flat-button (click)="showAddTask()">+ Add Task</button>
+    </ng-template>
 </div>
-<div *ngIf="showTask;else elseBlock">
-    <mat-form-field appearance="fill">
-        <mat-label>Task Name</mat-label>
-        <input #myInput matInput>
-    </mat-form-field>
-    <button (click)="addTask(myInput.value, projectId)" color="primary" mat-raised-button>Add task</button>
-    <button (click)="showAddTask()" mat-raised-button color="warn">Cancel</button>
-</div>
-<ng-template #elseBlock>
-    <button mat-flat-button (click)="showAddTask()">+ Add Task</button>
-
-</ng-template>

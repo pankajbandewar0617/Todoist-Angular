@@ -13,6 +13,12 @@ export class ProjectService {
     );
   }
 
+  deleteProject(id: number): Observable<any> {
+    return this.http.delete(
+      `https://api.todoist.com/rest/v1/projects/${id}?token=97ecd4cd1564208760228c783ef3d790fe2cef7c`
+    );
+  }
+
   // createNewProject(name): Observable<any> {
   //   return this.http.post(
   //     'https://api.todoist.com/rest/v1/projects?token=97ecd4cd1564208760228c783ef3d790fe2cef7c',
