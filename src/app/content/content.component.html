@@ -18,7 +18,7 @@
                     </button>
 
                     <mat-menu #menu="matMenu">
-                        <!-- <button mat-menu-item>Update</button> -->
+                        <button mat-menu-item (click)="openDialog(item.id,item.name)">Update</button>
                         <button mat-menu-item (click)="deleteProject(item.id)">Delete</button>
                     </mat-menu>
                 </div>
@@ -27,7 +27,6 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-
         <router-outlet></router-outlet>
 
     </mat-sidenav-content>

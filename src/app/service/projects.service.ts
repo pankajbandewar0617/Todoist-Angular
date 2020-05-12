@@ -19,6 +19,20 @@ export class ProjectService {
     );
   }
 
+  changeProject(id: number, data): Observable<any> {
+    return this.http.post(
+      `https://api.todoist.com/rest/v1/projects/${id}?token=97ecd4cd1564208760228c783ef3d790fe2cef7c`,
+      data
+    );
+  }
+
+  // editProject(data: any): Observable<any> {
+  //   return this.http.post(
+  //     `https://api.todoist.com/rest/v1/projects/${id}?token=97ecd4cd1564208760228c783ef3d790fe2cef7c`,
+  //     data
+  //   );
+  // }
+
   // createNewProject(name): Observable<any> {
   //   return this.http.post(
   //     'https://api.todoist.com/rest/v1/projects?token=97ecd4cd1564208760228c783ef3d790fe2cef7c',

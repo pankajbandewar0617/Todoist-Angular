@@ -1,6 +1,20 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  Inject,
+} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../service/projects.service';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
+import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
+import { Project } from './project';
 
 @Component({
   selector: 'app-content',
@@ -11,11 +25,14 @@ export class ContentComponent implements OnInit {
   @Input() public parentData: boolean;
   projects: any;
   data: any;
+  title: string;
+  updateData: any;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private projectService: ProjectService
+    private projectService: ProjectService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +49,32 @@ export class ContentComponent implements OnInit {
     this.router.navigate([`projects/${id}`, { title: name }], {
       relativeTo: this.route,
     });
+  }
+
+  openDialog(id: number, name: string): void {
+    const dialogRef = this.dialog.open(DialogBoxComponent, {
+      data: { title: name },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.updateProject(id, result);
+    });
+  }
+
+  updateProject(id: number, name: string) {
+    var project = new Project();
+
+    if (name.length > 0) {
+      project.name = name;
+      this.projectService.changeProject(id, project).subscribe();
+
+      this.updateData = this.data.filter((project) => project.id === id);
+      this.updateData[0].name = name;
+
+      this.router.navigate([`projects/${id}`, { title: name }], {
+        relativeTo: this.route,
+      });
+    }
   }
 
   deleteProject(id: number) {

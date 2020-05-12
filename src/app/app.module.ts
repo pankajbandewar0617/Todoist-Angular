@@ -13,6 +13,7 @@ import { ProjectService } from './service/projects.service';
 import { HttpClientModule } from '@angular/common/http';
 import { TaskService } from './service/task.service';
 import { MaterialModule } from './material/material.module';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,9 @@ import { MaterialModule } from './material/material.module';
     ContentComponent,
     ProjectComponent,
     TaskComponent,
+    DialogBoxComponent,
   ],
-
+  entryComponents: [DialogBoxComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
