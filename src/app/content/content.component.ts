@@ -1,18 +1,7 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  Output,
-  EventEmitter,
-  Inject,
-} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../service/projects.service';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogBoxComponent } from '../dialog-box/dialog-box.component';
 import { Project } from './project';
 
@@ -25,7 +14,6 @@ export class ContentComponent implements OnInit {
   @Input() public parentData: boolean;
   projects: any;
   data: any;
-  title: string;
   updateData: any;
 
   constructor(

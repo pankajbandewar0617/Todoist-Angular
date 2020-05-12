@@ -13,7 +13,14 @@
             <mat-label>Task Name</mat-label>
             <input #myInput matInput>
         </mat-form-field>
-        <button (click)="addTask(myInput.value, projectId)" color="primary" mat-raised-button>Add task</button>
+        <mat-form-field>
+            <mat-label>Schedule date</mat-label>
+            <input matInput #dateInput [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
+            <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #myDatePicker></mat-datepicker>
+        </mat-form-field>
+        <button (click)="addTask(myInput.value, projectId,dateInput.value)" color="primary" mat-raised-button>Add
+            task</button>
         <button (click)="showAddTask()" mat-raised-button color="warn">Cancel</button>
     </div>
     <ng-template #elseBlock>

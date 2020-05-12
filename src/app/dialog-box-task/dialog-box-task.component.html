@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Task name</h2>
+
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Task name</mat-label>
+        <input matInput [(ngModel)]="data.title">
+    </mat-form-field>
+    <!-- <mat-divider></mat-divider> -->
+    <!-- <mat-form-field>
+        <mat-label>Schedule date</mat-label>
+        <input matInput [(ngModel)]="data.date" [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
+        <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field> -->
+</div>
+<mat-dialog-actions>
+    <button mat-flat-button mat-dialog-close color="warn">Cancel</button>
+    <button mat-flat-button color="primary" [mat-dialog-close]="data.title">Add</button>
+</mat-dialog-actions>

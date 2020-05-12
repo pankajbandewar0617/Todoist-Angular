@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TaskService } from './service/task.service';
 import { MaterialModule } from './material/material.module';
 import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+import { DialogBoxTaskComponent } from './dialog-box-task/dialog-box-task.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     ProjectComponent,
     TaskComponent,
     DialogBoxComponent,
+    DialogBoxTaskComponent,
   ],
   entryComponents: [DialogBoxComponent],
   imports: [
